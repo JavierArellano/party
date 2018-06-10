@@ -1,13 +1,16 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="naranja">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
     <ion-title>
-      Ionic Blank
+      Let's Party
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-fab right bottom>
-    <button ion-fab color="naranja"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="naranja" (click)="nuevoEvento()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MapaPage } from '../index.paginas';
 
 /**
  * Generated class for the AgregarPage page.
@@ -16,6 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AgregarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  abrirMapa(){
+    this.navCtrl.push( MapaPage );
   }
 
   ionViewDidLoad() {
