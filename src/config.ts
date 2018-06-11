@@ -1,10 +1,10 @@
 export const firebaseConfig = {
   fire: {
-    apiKey: "AIzaSyCreWF6lzx2xHQIamqCxykxGt_INE_MZyU",
-    authDomain: "let-s-party-a0abf.firebaseapp.com",
-    databaseURL: "https://let-s-party-a0abf.firebaseio.com",
-    projectId: "let-s-party-a0abf",
-    storageBucket: "let-s-party-a0abf.appspot.com",
-    messagingSenderId: "183131070157"
+    apiKey: "AIzaSyAFPXZoKeveoquz9d7hVyH36uSAYdhCKYk",
+    authDomain: "a-fiestear.firebaseapp.com",
+    databaseURL: "https://a-fiestear.firebaseio.com",
+    projectId: "a-fiestear",
+    storageBucket: "a-fiestear.appspot.com",
+    messagingSenderId: "121329769065"
   }
 }
