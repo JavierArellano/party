@@ -1,6 +1,6 @@
 {
   "name": "LetsParty",
-  "app_id": "",
+  "app_id": "43097b63",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

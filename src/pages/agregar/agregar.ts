@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MapaPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
