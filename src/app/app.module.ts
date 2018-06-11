@@ -22,8 +22,11 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { firebaseConfig } from '../config';
+import { PartiesProvider } from '../providers/parties/parties';
+import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import { firebaseConfig } from '../config';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig.fire),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     NgxErrorsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB9dXYzLu_sVtnnIn0stdMrSjN34eADYCg'
@@ -64,7 +67,10 @@ import { firebaseConfig } from '../config';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthSProvider
+    AuthSProvider,
+    PartiesProvider,
+    UbicacionProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

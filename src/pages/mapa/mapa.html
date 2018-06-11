@@ -12,7 +12,12 @@
 
 
 <ion-content>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15" (mapClick)="selectPosition($event)">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+
+      <agm-circle [latitude]="lat" [longitude]="lng" [radius]="20" [fillOpacity]="0.50" [fillColor]="'#00A19A'"></agm-circle>
+    </agm-map>
+    <ion-fab right bottom>
+      <button ion-fab mini color="naranja" (click)="guardarPos( lat, pos )"><ion-icon name="checkmark-circle"></ion-icon></button>
+    </ion-fab>
 </ion-content>

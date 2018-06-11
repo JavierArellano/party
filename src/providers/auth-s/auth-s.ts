@@ -11,7 +11,7 @@ import AuthProvider = firebase.auth.AuthProvider;
 */
 @Injectable()
 export class AuthSProvider {
-	private user: firebase.User;
+	user: firebase.User;
 
 	constructor(public afAuth: AngularFireAuth) {
 		afAuth.authState.subscribe(user => {

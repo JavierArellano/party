@@ -10,6 +10,48 @@
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button (click)="abrirMapa()">Seleccionar Ubicación</button>
+<ion-content>
+  	<form (ngSubmit)="add()" [formGroup]="addForm">
+  		<ion-list inset>
+        <p>Bebida: <button ion-button (click)="moreBebida()" clear><ion-icon name="add"></ion-icon></button> </p>
+          <ion-list>
+            <ion-item *ngFor="let beb of bebidas">
+              <h2>{{beb.marca}}</h2>
+              <p>{{beb.cantidad}}</p>
+            </ion-item>
+          </ion-list>
+        <div formGroupName="bebidas">
+          <ion-item>
+            <ion-input type="text" placeholder="Marca" formControlName="marca"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
+          </ion-item>
+        </div>
+        <p>Comida: <button ion-button (click)="moreComida()" clear><ion-icon name="add"></ion-icon></button> </p>
+          <ion-list>
+            <ion-item *ngFor="let com of comidas">
+              <h3>{{com.plato}}</h3>
+              <p>{{com.cantidad}}</p>
+            </ion-item>
+          </ion-list>
+        <div formGroupName="comidas">
+          <ion-item>
+            <ion-input type="text" placeholder="Plato" formControlName="plato"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
+          </ion-item>
+        </div>
+        <p>Ubicación</p>
+        <button ion-button (click)="abrirMapa()" clear>Seleccionar Ubicación</button>
+
+  		</ion-list>
+
+  		<div padding-horizontal>
+
+  			<button ion-button full type="submit">Guardar</button>
+
+  		</div>
+  	</form>
 </ion-content>
