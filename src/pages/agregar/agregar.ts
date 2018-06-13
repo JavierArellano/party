@@ -22,6 +22,7 @@ export class AgregarPage {
     ub:any;
   	addForm: FormGroup;
   	addError: string;
+    myDate: string = new Date().toISOString();
     bebidas:any[]=[];
     comidas:any[]=[];
 
@@ -33,7 +34,14 @@ export class AgregarPage {
       private fiestaP:PartiesProvider,
       private authS:AuthSProvider
     ) {
+      this.ubicacionP.actual().then( exists => {
+        if (exists){
+          this.ub = this.ubicacionP.posi;
+          console.log(this.ub);
+        }
+      });
       this.addForm = fb.group({
+        nombre:'',
         bebidas: fb.group({
           marca:'',
           cantidad:''
@@ -43,6 +51,7 @@ export class AgregarPage {
           cantidad:''
         })
       });
+
   }
 
   moreBebida(){
@@ -70,27 +79,30 @@ export class AgregarPage {
   }
 
   add(){
-    let lat = this.ubicacionP.coordNuevas.lat;
-    let lng = this.ubicacionP.coordNuevas.lng;
-    this.moreBebida();
-    this.moreComida();
-    let userId = this.authS.user.uid;
-    let data ={
-      'userId':userId,
-      'bebidas':this.bebidas,
-      'comida':this.comidas,
-      'lat':lat,
-      'lng':lng
+    if(this.ubicacionP.coordNuevas ){
+      let nombre = this.addForm.get('nombre').value;
+      if (nombre!=''){
+        let lat = this.ubicacionP.coordNuevas.lat;
+        let lng = this.ubicacionP.coordNuevas.lng;
+        this.moreBebida();
+        this.moreComida();
+        let userId = this.authS.user.uid;
+        let data ={
+          'userId':userId,
+          'nombre':nombre,
+          'bebidas':this.bebidas,
+          'comida':this.comidas,
+          'fecha':this.myDate,
+          'lat':lat,
+          'lng':lng
+        }
+        this.fiestaP.addFiesta(data);
+        this.navCtrl.popToRoot();
+      }
     }
-    this.fiestaP.addFiesta(data);
   }
 
   ionViewDidLoad() {
-    this.ubicacionP.actual().then( exists => {
-      if (exists){
-        this.ub = this.ubicacionP.posi;
-      }
-    });
   }
 
 }

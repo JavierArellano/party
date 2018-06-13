@@ -15,7 +15,14 @@ export class PartiesProvider {
 
 
   addFiesta(data:any){
-    this.afDB.collection('fiestas').add(data);
+
+    let id=this.afDB.createId();
+    data.id = id;
+    this.afDB.collection('fiestas').doc(id).set(data);
+  }
+
+  ponerId(id){
+    this.afDB.doc(`/fiestas/${id}`).update({'id': id});
   }
 
   obtenerFiestas(){

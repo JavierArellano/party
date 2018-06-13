@@ -13,6 +13,10 @@
 <ion-content>
   	<form (ngSubmit)="add()" [formGroup]="addForm">
   		<ion-list inset>
+        <p>Nombre Evento:</p>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre" formControlName="nombre"></ion-input>
+        </ion-item>
         <p>Bebida: <button ion-button (click)="moreBebida()" clear><ion-icon name="add"></ion-icon></button> </p>
           <ion-list>
             <ion-item *ngFor="let beb of bebidas">
@@ -28,7 +32,7 @@
             <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
           </ion-item>
         </div>
-        <p>Comida: <button ion-button (click)="moreComida()" clear><ion-icon name="add"></ion-icon></button> </p>
+        <p>Comida: <button ion-button (click)="moreComida()" clear><ion-icon name="add"></ion-icon></button></p>
           <ion-list>
             <ion-item *ngFor="let com of comidas">
               <h3>{{com.plato}}</h3>
@@ -43,7 +47,21 @@
             <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
           </ion-item>
         </div>
-        <p>Ubicación</p>
+        <div>
+          <p>Fecha:</p>
+          <ion-item>
+            <ion-datetime
+              displayFormat="DDDD DD de MMMM"
+              pickerFormat="DD MMMM HH mm"
+              [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="myDate"
+              dayNames="domingo, lunes, martes, miercoles, jueves, viernes, sabado"
+              monthNames="enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre"
+              monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic"
+            ></ion-datetime>
+          </ion-item>
+        </div>
+        <p>Ubicación: </p>
         <button ion-button (click)="abrirMapa()" clear>Seleccionar Ubicación</button>
 
   		</ion-list>

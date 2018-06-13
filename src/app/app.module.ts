@@ -43,11 +43,11 @@ import { Geolocation } from '@ionic-native/geolocation';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig.fire),
+    AngularFireModule.initializeApp(firebaseConfig.fire, 'A Fiestear'),
     AngularFirestoreModule,
     NgxErrorsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB9dXYzLu_sVtnnIn0stdMrSjN34eADYCg'
+      apiKey: 'AIzaSyA8up1WEo6gn0v7jtQeR6OAdz4FhbY1TVI'
     }),
   ],
   bootstrap: [IonicApp],
