@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { AgregarPage, DetallePage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
+import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,7 @@ import { PartiesProvider } from '../../providers/parties/parties';
 })
 export class HomePage {
   fiestas:any;
-  constructor(public navCtrl: NavController, private parties:PartiesProvider) {
+  constructor(public navCtrl: NavController, private parties:PartiesProvider, private ubicacionP:UbicacionProvider) {
 
   }
   nuevoEvento(){
@@ -26,19 +27,15 @@ export class HomePage {
     this.parties.obtenerFiestas()
     .then( exists => {
       if (exists){
-        let fiestas2 = this.parties.fiestas.sort(function(a, b) {
-            a = new Date(a.fecha);
-            b = new Date(b.fecha);
-            return a>b ? 1 : a<b ? -1 : 0;
-        });;
-        for (let i = 0; i < fiestas2.length; i++) {
-          let hoy = new Date();
-          let t = new Date(fiestas2[i].fecha);
-          if (t > hoy){
-            this.fiestas = fiestas2.slice(i);
-            break;
+        this.ubicacionP.actual().then( existe => {
+          if (existe){
+            this.parties.fiestasObs()
+        	  	.subscribe(
+        	      data => {this.fiestas=data;},
+        	      );;
+            console.log(this.fiestas);
           }
-        }
+        });
       }else{
 
       }

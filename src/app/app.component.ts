@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage, LoginPage } from '../pages/index.paginas';
+import { HomePage, LoginPage, AgregarPage, SignupPage } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 
 @Component({
@@ -12,6 +12,8 @@ import { AuthSProvider } from '../providers/auth-s/auth-s';
 export class MyApp {
   login = LoginPage;
   home = HomePage;
+  meter = AgregarPage;
+  regis = SignupPage;
   isLogged:boolean;
 
   rootPage:any = LoginPage;
@@ -24,6 +26,25 @@ export class MyApp {
     private menuCtrl: MenuController
   ) {
     this.initializeApp();
+  }
+
+  openHome(){
+    this.menuCtrl.toggle();
+  	this.rootPage = this.home;
+  }
+
+  register(){
+    this.menuCtrl.toggle();
+  	this.rootPage = this.regis;
+  }
+
+  closeMenu(){
+    this.menuCtrl.toggle();
+  }
+
+  nuevoEvento(){
+    this.menuCtrl.toggle();
+  	this.rootPage = this.meter;
   }
 
   loginF() {

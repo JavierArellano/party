@@ -4,13 +4,14 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content>
     <ion-list *ngIf="isLogged">
-      <button ion-item (click)="openPage(homePage)">
+      <button ion-item (click)="openHome()">
         Home
       </button>
-      <button ion-item (click)="openPage(friendsPage)">
-        Friends
+      <button ion-item (click)="nuevoEvento()">
+        Nuevo Evento
       </button>
       <button ion-item (click)="logout()">
         Log Out
@@ -25,9 +26,6 @@
       </button>
       <button ion-item (click)="register()">
         Register
-      </button>
-      <button ion-item (click)="openPage(eventsPage)">
-        Events
       </button>
       <button ion-item (click)="closeMenu()">
         Close Menu
