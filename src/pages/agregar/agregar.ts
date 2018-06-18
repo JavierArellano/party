@@ -19,6 +19,7 @@ import { AuthSProvider } from '../../providers/auth-s/auth-s';
   templateUrl: 'agregar.html',
 })
 export class AgregarPage {
+    toggleStatus:boolean=false;
     ub:any;
   	addForm: FormGroup;
   	addError: string;
@@ -89,6 +90,7 @@ export class AgregarPage {
         let userId = this.authS.user.uid;
         let data ={
           'userId':userId,
+          'privada':this.toggleStatus,
           'nombre':nombre,
           'bebidas':this.bebidas,
           'comida':this.comidas,

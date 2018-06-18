@@ -12,6 +12,7 @@ import {Observable, Subject } from 'rxjs/Rx';
 export class PartiesProvider {
   fiestas:any;
   mis_fiestas:any;
+  f:any;
   private fiestasas: Subject<any> = new Subject<any>();
   private misfiestas: Subject<any> = new Subject<any>();
 
@@ -20,7 +21,6 @@ export class PartiesProvider {
 
 
   addFiesta(data:any){
-
     let id=this.afDB.createId();
     data.id = id;
     this.afDB.collection('fiestas').doc(id).set(data);
@@ -45,6 +45,24 @@ export class PartiesProvider {
   borrarEvento(id){
     this.afDB.doc(`/fiestas/${id}`).delete();
   }
+  obtenerUna(id){
+    return new Promise( (resolve, reject )=>{
+      this.afDB.doc(`/fiestas/${id}`).valueChanges().subscribe( data => {
+        if(data){
+          this.f = data;
+          resolve(true);
+        }else{
+          resolve(false);
+        }
+      })
+    })
+  }
+  aceptarInvitacion(id, lista){
+    console.log(lista);
+    this.afDB.doc(`/fiestas/${id}`).update({
+      'invitados':lista
+    })
+  }
   obtenerMisFiestas(userId:string){
     return new Promise( (resolve, reject )=>{
       this.afDB.collection('fiestas', ref => ref.where("userId", "==", userId))
@@ -66,7 +84,7 @@ export class PartiesProvider {
       });
   }
 
-  obtenerFiestas(){
+  obtenerFiestas(uid){
     return new Promise( (resolve, reject )=>{
       this.afDB.collection('fiestas')
       .valueChanges().subscribe( data => {
@@ -85,6 +103,16 @@ export class PartiesProvider {
               this.fiestas = fiestas2.slice(i);
               break;
             }
+          }
+          let f2;
+          for (let i = 0; i < this.fiestas.length; i++) {
+              if(this.fiestas[i].privada){
+                for (let inv in this.fiestas[i].invitados) {
+                    if(inv==uid){
+                      f2.push({i:true})
+                    }
+                }
+              }
           }
           this.addfiestasObs();
           resolve(true);

@@ -13,6 +13,13 @@
 <ion-content>
   	<form (ngSubmit)="add()" [formGroup]="addForm">
   		<ion-list inset>
+        <ion-item>
+          <ion-label>Privada</ion-label>
+          <ion-toggle
+          [(ngModel)]="toggleStatus"
+          [ngModelOptions]="{standalone: true}"
+          ></ion-toggle>
+        </ion-item>
         <p>Nombre Evento:</p>
         <ion-item>
           <ion-input type="text" placeholder="Nombre" formControlName="nombre"></ion-input>
