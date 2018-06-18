@@ -36,17 +36,19 @@ export class MisEventosPage {
       if (exists){
         this.ubicacionP.mis_fiestas_posi().then( existe => {
           if (existe){
-            this.parties.misFiestasObs()
-        	  	.subscribe(
-        	      data => {this.fiestas=data;},
-        	      );;
-            console.log(this.fiestas);
+            console.log(this.ubicacionP.posi);
           }
         });
       }else{
 
       }
     });
+    this.parties.misFiestasObs()
+    .subscribe(
+        data => {
+          this.fiestas=data
+          console.log('data:', data)
+        });
   }
 
 }

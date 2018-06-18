@@ -30,6 +30,7 @@ export class PartiesProvider {
     this.afDB.doc(`/fiestas/${id}`).update({'id': id});
   }
   addfiestasObs(){
+    console.log('fiestas obs:',this.fiestas)
     this.fiestasas.next(this.fiestas);
   }
   fiestasObs(): Observable<any>{
@@ -55,6 +56,7 @@ export class PartiesProvider {
                 b = new Date(b.fecha);
                 return a>b ? 1 : a<b ? -1 : 0;
             })
+            this.addmisfiestasObs();
             resolve(true);
           }else{
             console.log('fallo');
@@ -84,6 +86,7 @@ export class PartiesProvider {
               break;
             }
           }
+          this.addfiestasObs();
           resolve(true);
         }else{
           console.log('fallo');

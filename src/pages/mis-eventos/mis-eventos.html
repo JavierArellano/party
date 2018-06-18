@@ -12,11 +12,11 @@
 
 <ion-content padding>
   <h2>Todos mis eventos</h2>
-  <ion-list>
+  <ion-list *ngIf="fiestas">
     <ion-item *ngFor="let f of fiestas">
       <h2>{{f.nombre}}</h2>
       <p>{{f.fecha | date: 'dd/MM/yyyy H:mm' }}</p>
-      <p>{{f.distancia}} Km</p>
+      <p *ngIf="f.distancia">{{f.distancia}} Km</p>
       <button ion-button (click)="detalle(f)" item-end clear>
         Detalles
       </button>

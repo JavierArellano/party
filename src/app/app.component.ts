@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage, LoginPage, AgregarPage, SignupPage, MisEventosPage } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
+import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,6 +25,7 @@ export class MyApp {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private auth: AuthSProvider,
+    private ubicacionP:UbicacionProvider,
     private menuCtrl: MenuController
   ) {
     this.initializeApp();
@@ -88,5 +90,6 @@ export class MyApp {
           this.isLogged = false;
         }
       );
+      this.ubicacionP.soloPos();
   }
 }

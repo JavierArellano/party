@@ -34,16 +34,18 @@ export class HomePage {
       if (exists){
         this.ubicacionP.actual().then( existe => {
           if (existe){
-            this.parties.fiestasObs()
-        	  	.subscribe(
-        	      data => {this.fiestas=data;},
-        	      );;
             console.log(this.fiestas);
+          }else{
+
           }
         });
       }else{
 
       }
     });
+    this.parties.fiestasObs()
+      .subscribe(
+        data => {this.fiestas=data}
+      );
   }
 }
