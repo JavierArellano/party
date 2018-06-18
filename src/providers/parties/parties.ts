@@ -105,15 +105,19 @@ export class PartiesProvider {
             }
           }
           let f2;
+          let f3;
           for (let i = 0; i < this.fiestas.length; i++) {
               if(this.fiestas[i].privada){
+                f3.push(i);
                 for (let inv in this.fiestas[i].invitados) {
                     if(inv==uid){
-                      f2.push({i:true})
+                      f2.push(i);
+                      break;
                     }
                 }
               }
           }
+          
           this.addfiestasObs();
           resolve(true);
         }else{
