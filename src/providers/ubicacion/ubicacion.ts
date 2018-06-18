@@ -40,6 +40,31 @@ export class UbicacionProvider {
     return deg*(Math.PI/180);
   }
 
+  soloPos(){
+    return new Promise( (resolve, reject)=>{
+      this.geolocation.getCurrentPosition().then((resp) => {
+         // resp.coords.latitude
+         // resp.coords.longitude
+        this.posi=resp;
+        let watch = this.geolocation.watchPosition();
+        watch.subscribe((data) => {
+           // data can be a set of coordinates, or an error (if an error occurred).
+           // data.coords.latitude
+           // data.coords.longitude
+          if(data){
+            this.posi=data;
+            resolve(true);
+          }else{
+            console.log('fallo');
+            resolve(false);
+          }
+        });
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
+    });
+  }
+
   mis_fiestas_posi() {
     return new Promise( (resolve, reject)=>{
       this.geolocation.getCurrentPosition().then((resp) => {
@@ -57,16 +82,15 @@ export class UbicacionProvider {
            // data.coords.longitude
           if(data){
             this.posi=data;
-            console.log(this.posi);
+            for (let i = 0; i < this.parties.mis_fiestas.length; i++) {
+              this.parties.mis_fiestas[i].distancia = this.distancia(this.parties.mis_fiestas[i].lat,this.parties.mis_fiestas[i].lng)
+            }
+            this.parties.addmisfiestasObs();
             resolve(true);
           }else{
             console.log('fallo');
             resolve(false);
           }
-           for (let i = 0; i < this.parties.mis_fiestas.length; i++) {
-             this.parties.mis_fiestas[i].distancia = this.distancia(this.parties.mis_fiestas[i].lat,this.parties.mis_fiestas[i].lng)
-           }
-           this.parties.addmisfiestasObs();
         });
       }).catch((error) => {
         console.log('Error getting location', error);
@@ -90,16 +114,15 @@ export class UbicacionProvider {
            // data.coords.longitude
           if(data){
             this.posi=data;
-            console.log(this.posi);
+            for (let i = 0; i < this.parties.fiestas.length; i++) {
+              this.parties.fiestas[i].distancia = this.distancia(this.parties.fiestas[i].lat,this.parties.fiestas[i].lng)
+            }
+            this.parties.addfiestasObs();
             resolve(true);
           }else{
             console.log('fallo');
             resolve(false);
           }
-           for (let i = 0; i < this.parties.fiestas.length; i++) {
-             this.parties.fiestas[i].distancia = this.distancia(this.parties.fiestas[i].lat,this.parties.fiestas[i].lng)
-           }
-           this.parties.addfiestasObs();
         });
       }).catch((error) => {
         console.log('Error getting location', error);

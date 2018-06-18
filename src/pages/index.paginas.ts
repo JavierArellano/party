@@ -7,3 +7,5 @@ export { MapaPage } from './mapa/mapa';
 export { SignupPage } from './signup/signup';
 export { TabsPage } from './tabs/tabs';
 export { MisEventosPage } from './mis-eventos/mis-eventos';
+export { MapaCercanasPage } from './mapa-cercanas/mapa-cercanas';
+export { MapaDetallePage } from './mapa-detalle/mapa-detalle';

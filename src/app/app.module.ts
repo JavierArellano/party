@@ -14,7 +14,9 @@ import {
   MapaPage,
   SignupPage,
   TabsPage,
-  MisEventosPage
+  MisEventosPage,
+  MapaCercanasPage,
+  MapaDetallePage
 } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -40,7 +42,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     MapaPage,
     SignupPage,
     TabsPage,
-    MisEventosPage
+    MisEventosPage,
+    MapaCercanasPage,
+    MapaDetallePage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     MapaPage,
     SignupPage,
     TabsPage,
-    MisEventosPage
+    MisEventosPage,
+    MapaCercanasPage,
+    MapaDetallePage
   ],
   providers: [
     StatusBar,

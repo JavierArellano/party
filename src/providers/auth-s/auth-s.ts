@@ -16,7 +16,6 @@ export class AuthSProvider {
 	constructor(public afAuth: AngularFireAuth) {
 		afAuth.authState.subscribe(user => {
 			this.user = user;
-			console.log(this.user);
 		});
 	}
 

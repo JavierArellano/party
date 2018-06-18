@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar color="naranja">
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Localización Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="30" [fillOpacity]="0.10" [fillColor]="'#00A19A'"></agm-circle>
+      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="8" [fillOpacity]="1" [fillColor]="'#2800db'"></agm-circle>
+
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+</ion-content>
