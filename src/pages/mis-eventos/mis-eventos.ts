@@ -39,8 +39,6 @@ export class MisEventosPage {
             console.log(this.ubicacionP.posi);
           }
         });
-      }else{
-
       }
     });
     this.parties.misFiestasObs()

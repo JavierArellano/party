@@ -21,12 +21,6 @@ export class MapaCercanasPage {
     this.milng = this.ubicacionP.posi.coords.longitude;
   }
 
-  centrar(){
-    this.milat = this.ubicacionP.posi.coords.latitude;
-    this.milng = this.ubicacionP.posi.coords.longitude;
-    this.zoom=18;
-  }
-
   ionViewDidLoad() {
   }
 

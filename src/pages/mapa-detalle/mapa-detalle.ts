@@ -24,10 +24,6 @@ export class MapaDetallePage {
     console.log(this.ubicacionP.posi)
     console.log(this.milat, this.milng)
   }
-  centrar(){
-    this.milat = this.ubicacionP.posi.coords.latitude;
-    this.milng = this.ubicacionP.posi.coords.longitude;
-  }
 
 
 

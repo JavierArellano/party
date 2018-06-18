@@ -35,12 +35,8 @@ export class HomePage {
         this.ubicacionP.actual().then( existe => {
           if (existe){
             console.log(this.fiestas);
-          }else{
-
           }
         });
-      }else{
-
       }
     });
     this.parties.fiestasObs()

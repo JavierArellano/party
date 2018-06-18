@@ -13,8 +13,8 @@
 
 <ion-content>
     <agm-map [latitude]="milat" [longitude]="milng" [zoom]="zoom">
-      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="30" [fillOpacity]="0.10" [fillColor]="'#00A19A'"></agm-circle>
-      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="10" [fillOpacity]="1" [fillColor]="'blue'"></agm-circle>
+      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="60" [fillOpacity]="0.10" [fillColor]="'#00A19A'"></agm-circle>
+      <agm-circle [latitude]="milat" [longitude]="milng" [radius]="20" [fillOpacity]="1" [fillColor]="'blue'"></agm-circle>
 
       <agm-marker *ngFor="let f of fiestas; let i = index" [latitude]="f.lat" [longitude]="f.lng">
         <agm-info-window>
@@ -24,7 +24,4 @@
         </agm-info-window>
       </agm-marker>
     </agm-map>
-    <ion-fab right top>
-      <button ion-fab mini color="naranja" (click)="centrar()"><ion-icon name="locate"></ion-icon></button>
-    </ion-fab>
 </ion-content>
