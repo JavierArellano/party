@@ -30,6 +30,7 @@ import { firebaseConfig } from '../config';
 import { PartiesProvider } from '../providers/parties/parties';
 import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 import { Geolocation } from '@ionic-native/geolocation';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     AuthSProvider,
     PartiesProvider,
     UbicacionProvider,
-    Geolocation
+    Geolocation,
+    SocialSharing
   ]
 })
 export class AppModule {}

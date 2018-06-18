@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-item>Distancia:
-    <p>{{fiesta.distancia}} Km</p>
+    <p *ngIf="fiesta.distancia">{{fiesta.distancia}} Km</p>
     <button ion-button (click)="mostrarMapa()" item-end clear>
       <ion-icon name="map"></ion-icon>
     </button>
@@ -30,4 +30,7 @@
       </ion-item>
     </ion-list>
   </ion-item>
+  <ion-fab right bottom *ngIf="mia">
+    <button ion-fab color="naranja" (click)="compartir()"><ion-icon name="logo-whatsapp"></ion-icon></button>
+  </ion-fab>
 </ion-content>
