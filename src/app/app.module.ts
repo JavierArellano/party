@@ -13,7 +13,8 @@ import {
   HomePage,
   MapaPage,
   SignupPage,
-  TabsPage
+  TabsPage,
+  MisEventosPage
 } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -38,7 +39,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     MapaPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    MisEventosPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     MapaPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    MisEventosPage
   ],
   providers: [
     StatusBar,

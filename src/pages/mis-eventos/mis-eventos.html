@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="naranja">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+    <ion-title>
+      Mis Eventos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Todos mis eventos</h2>
+  <ion-list>
+    <ion-item *ngFor="let f of fiestas">
+      <h2>{{f.nombre}}</h2>
+      <p>{{f.fecha | date: 'dd/MM/yyyy H:mm' }}</p>
+      <p>{{f.distancia}} Km</p>
+      <button ion-button (click)="detalle(f)" item-end clear>
+        Detalles
+      </button>
+      <button ion-button item-end clear (click)="borrar(f)"><ion-icon color="danger" name="trash"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="naranja" (click)="nuevoEvento()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

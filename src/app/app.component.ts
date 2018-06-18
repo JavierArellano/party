@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage, LoginPage, AgregarPage, SignupPage } from '../pages/index.paginas';
+import { HomePage, LoginPage, AgregarPage, SignupPage, MisEventosPage } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 
 @Component({
@@ -14,6 +14,7 @@ export class MyApp {
   home = HomePage;
   meter = AgregarPage;
   regis = SignupPage;
+  mias = MisEventosPage;
   isLogged:boolean;
 
   rootPage:any = LoginPage;
@@ -40,6 +41,11 @@ export class MyApp {
 
   closeMenu(){
     this.menuCtrl.toggle();
+  }
+
+  misEventos(){
+    this.menuCtrl.toggle();
+  	this.rootPage = this.mias;
   }
 
   nuevoEvento(){

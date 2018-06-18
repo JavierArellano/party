@@ -11,7 +11,10 @@ import {Observable, Subject } from 'rxjs/Rx';
 @Injectable()
 export class PartiesProvider {
   fiestas:any;
+  mis_fiestas:any;
   private fiestasas: Subject<any> = new Subject<any>();
+  private misfiestas: Subject<any> = new Subject<any>();
+
   constructor(private afDB: AngularFirestore) {
   }
 
@@ -32,6 +35,34 @@ export class PartiesProvider {
   fiestasObs(): Observable<any>{
   	return this.fiestasas.asObservable();
   }
+  addmisfiestasObs(){
+    this.misfiestas.next(this.mis_fiestas);
+  }
+  misFiestasObs(): Observable<any>{
+    return this.misfiestas.asObservable();
+  }
+  borrarEvento(id){
+    this.afDB.doc(`/fiestas/${id}`).delete();
+  }
+  obtenerMisFiestas(userId:string){
+    return new Promise( (resolve, reject )=>{
+      this.afDB.collection('fiestas', ref => ref.where("userId", "==", userId))
+        .valueChanges().subscribe( data => {
+          if(data){
+            let fiestas:any = data;
+            this.mis_fiestas = fiestas.sort(function(a, b) {
+                a = new Date(a.fecha);
+                b = new Date(b.fecha);
+                return a>b ? 1 : a<b ? -1 : 0;
+            })
+            resolve(true);
+          }else{
+            console.log('fallo');
+            resolve(false);
+          }
+        })
+      });
+  }
 
   obtenerFiestas(){
     return new Promise( (resolve, reject )=>{
@@ -44,7 +75,7 @@ export class PartiesProvider {
               a = new Date(a.fecha);
               b = new Date(b.fecha);
               return a>b ? 1 : a<b ? -1 : 0;
-          });;
+          });
           for (let i = 0; i < fiestas2.length; i++) {
             let hoy = new Date();
             let t = new Date(fiestas2[i].fecha);
