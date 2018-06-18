@@ -104,20 +104,20 @@ export class PartiesProvider {
               break;
             }
           }
-          let f2;
-          let f3;
+          let f2=[];
+          let f3=[];
           for (let i = 0; i < this.fiestas.length; i++) {
               if(this.fiestas[i].privada){
                 f3.push(i);
                 for (let inv in this.fiestas[i].invitados) {
-                    if(inv==uid){
+                    if(this.fiestas[i].invitados[inv]==uid){
                       f2.push(i);
                       break;
                     }
                 }
               }
           }
-          
+          console.log('f2:'+f2,'f3:'+f3);
           this.addfiestasObs();
           resolve(true);
         }else{
