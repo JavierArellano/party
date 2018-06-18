@@ -18,7 +18,7 @@ export class DetallePage {
   }
 
   mostrarMapa(){
-      this.navCtrl.push( MapaDetallePage, { 'lat': this.fiesta.lat, 'lng':this.fiesta.lng } );
+      this.navCtrl.push( MapaDetallePage, { 'fiesta':this.fiesta, 'lat': this.fiesta.lat, 'lng':this.fiesta.lng } );
   }
 
   mostrarB(){

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { AgregarPage, DetallePage } from '../index.paginas';
+import { AgregarPage, DetallePage, MapaCercanasPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 
@@ -14,6 +14,11 @@ export class HomePage {
   constructor(public navCtrl: NavController, private parties:PartiesProvider, private ubicacionP:UbicacionProvider) {
 
   }
+
+  mapaCercanas(){
+    this.navCtrl.push(MapaCercanasPage, {'fiestas':this.fiestas})
+  }
+
   nuevoEvento(){
     this.navCtrl.push(AgregarPage);
   }

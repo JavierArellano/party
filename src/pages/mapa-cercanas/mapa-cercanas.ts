@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the MapaCercanasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 
 @IonicPage()
 @Component({
@@ -14,12 +10,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mapa-cercanas.html',
 })
 export class MapaCercanasPage {
+  fiestas:any[];
+  milat;
+  milng;
+  zoom=18;
+  //radio;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ubicacionP:UbicacionProvider) {
+    this.fiestas = navParams.get('fiestas');
+    this.milat = this.ubicacionP.posi.coords.latitude;
+    this.milng = this.ubicacionP.posi.coords.longitude;
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  centrar(){
+    this.milat = this.ubicacionP.posi.coords.latitude;
+    this.milng = this.ubicacionP.posi.coords.longitude;
+    this.zoom=18;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MapaCercanasPage');
   }
 
 }

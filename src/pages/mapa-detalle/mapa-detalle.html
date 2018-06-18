@@ -12,10 +12,19 @@
 
 
 <ion-content>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="18">
       <agm-circle [latitude]="milat" [longitude]="milng" [radius]="30" [fillOpacity]="0.10" [fillColor]="'#00A19A'"></agm-circle>
       <agm-circle [latitude]="milat" [longitude]="milng" [radius]="10" [fillOpacity]="1" [fillColor]="'blue'"></agm-circle>
 
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-marker [latitude]="lat" [longitude]="lng">
+        <agm-info-window>
+          <strong>{{fiesta.nombre}}</strong>
+          <p>{{fiesta.fecha | date: 'dd/MM/yyyy H:mm' }}</p>
+          <p>{{fiesta.distancia}} Km</p>
+        </agm-info-window>
+      </agm-marker>
     </agm-map>
+    <ion-fab right top>
+      <button ion-fab mini color="naranja" (click)="centrar()"><ion-icon name="locate"></ion-icon></button>
+    </ion-fab>
 </ion-content>

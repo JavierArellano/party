@@ -23,7 +23,7 @@
     </ion-list>
   </ion-item>
   <ion-item>Comida:  <button ion-button (click)="mostrarC()" clear><ion-icon name="arrow-down"></ion-icon></button>
-    <ion-list *ngIf="mostarCom">
+    <ion-list *ngIf="mostrarCom">
       <ion-item *ngFor="let com of fiesta.comidas">
         <h3>{{com.plato}}</h3>
         <p>{{com.cantidad}}</p>

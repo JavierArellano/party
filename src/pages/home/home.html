@@ -22,6 +22,10 @@
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
-    <button ion-fab color="naranja" (click)="nuevoEvento()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab color="naranja" (click)="mapaCercanas()"><ion-icon name="map"></ion-icon></button>
+      <button ion-fab color="naranja" (click)="nuevoEvento()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab-list>
   </ion-fab>
 </ion-content>
