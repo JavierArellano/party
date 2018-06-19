@@ -40,6 +40,7 @@ export class AuthSProvider {
 					let token = result.credential.accessToken;
 					// The signed-in user info.
 					let user = result.user;
+					console.log(user, token);
 				}).catch(function(error) {
 					// Handle Errors here.
 					alert(error.message);

@@ -5,6 +5,7 @@ import { AgregarPage, DetallePage, MapaCercanasPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 import { AuthSProvider } from '../../providers/auth-s/auth-s';
+import { Calendar } from '@ionic-native/calendar';
 
 @Component({
   selector: 'page-home',
@@ -19,6 +20,7 @@ export class HomePage {
     public alertCtrl:AlertController,
     private parties:PartiesProvider,
     private ubicacionP:UbicacionProvider,
+    private calendario:Calendar,
     private authS:AuthSProvider) {
 
   }
@@ -62,6 +64,37 @@ export class HomePage {
     });
     prompt.present();
   }
+  showAddCalendar(fiesta){
+    const prompt = this.alertCtrl.create({
+      title: 'Añadir al calendario',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancelar');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: data => {
+            console.log(fiesta)
+            let d = new Date(fiesta.fecha);
+            let s = d.getHours()+1;
+            d.setHours(s);
+            this.calendario.createEvent(fiesta.nombre,'','',new Date(fiesta.fecha),d)
+            .then( exist => {
+              if(exist){
+                console.log("Event created successfully");
+              }else {
+                console.error("There was an error");
+              }
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
   mapaCercanas(){
     let f=[];
@@ -78,7 +111,6 @@ export class HomePage {
   }
 
   detalle(fiesta:any){
-    console.log('detalle: ', fiesta);
     this.navCtrl.push(DetallePage, {'fiesta':fiesta});
   }
 
@@ -88,7 +120,6 @@ export class HomePage {
       if (exists){
         this.ubicacionP.actual().then( existe => {
           if (existe){
-            console.log(this.fiestas);
           }
         });
       }

@@ -20,6 +20,9 @@
       <p>{{f.fecha | date: 'dd/MM/yyyy H:mm' }}</p>
       <p *ngIf="f.distancia">{{f.distancia}} Km</p>
       <ion-icon *ngIf="f.privada" item-end name="unlock" color="teal"></ion-icon>
+      <button ion-button (click)="showAddCalendar(f)" item-end clear>
+        <ion-icon item-end name="calendar"></ion-icon>
+      </button>
       <button ion-button (click)="detalle(f)" item-end clear>
         Detalles
       </button>

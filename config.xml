@@ -98,5 +98,6 @@
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
+    <plugin name="cordova-plugin-calendar" spec="^5.1.2" />
     <engine name="android" spec="7.0.0" />
 </widget>

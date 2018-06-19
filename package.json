@@ -22,6 +22,7 @@
     "@angular/http": "5.2.10",
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "5.2.10",
+    "@ionic-native/calendar": "^4.7.0",
     "@ionic-native/core": "4.7.0",
     "@ionic-native/geolocation": "^4.7.0",
     "@ionic-native/social-sharing": "^4.7.0",
@@ -35,6 +36,7 @@
     "cordova-android": "7.0.0",
     "cordova-plugin-browsertab": "^0.2.0",
     "cordova-plugin-buildinfo": "^2.0.1",
+    "cordova-plugin-calendar": "^5.1.2",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.1",
@@ -72,7 +74,8 @@
       "cordova-plugin-buildinfo": {},
       "cordova-plugin-browsertab": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-x-socialsharing": {}
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-calendar": {}
     },
     "platforms": [
       "android"
