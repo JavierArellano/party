@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
-import { AuthSProvider } from '../../providers/auth-s/auth-s';
 import { MapaPage } from '../index.paginas';
 
 @IonicPage()
@@ -22,7 +21,6 @@ export class EditarPage {
       fb:FormBuilder,
       private ubicacionP:UbicacionProvider,
       private fiestaP:PartiesProvider,
-      private authS:AuthSProvider
     ) {
       this.fiesta = this.navParams.get('fiesta');
       this.addForm = fb.group({
