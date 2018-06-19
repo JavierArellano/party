@@ -65,7 +65,13 @@ export class HomePage {
   }
 
   mapaCercanas(){
-    this.navCtrl.push(MapaCercanasPage, {'fiestas':this.fiestas})
+    let f=[];
+    for (let fiesta of this.fiestas) {
+        if(fiesta.distancia>10){
+          f.push(fiesta);
+        }
+    }
+    this.navCtrl.push(MapaCercanasPage, {'fiestas':f})
   }
 
   nuevoEvento(){
