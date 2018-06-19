@@ -67,7 +67,7 @@ export class HomePage {
   mapaCercanas(){
     let f=[];
     for (let fiesta of this.fiestas) {
-        if(fiesta.distancia>10){
+        if(fiesta.distancia<10){
           f.push(fiesta);
         }
     }
