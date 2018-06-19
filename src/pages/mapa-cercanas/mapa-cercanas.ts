@@ -14,7 +14,6 @@ export class MapaCercanasPage {
   milat;
   milng;
   zoom=18;
-  //radio;
   constructor(public navCtrl: NavController, public navParams: NavParams, private ubicacionP:UbicacionProvider) {
     this.fiestas = navParams.get('fiestas');
     this.milat = this.ubicacionP.posi.coords.latitude;
