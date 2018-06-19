@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthSProvider } from '../../providers/auth-s/auth-s';
+import { PartiesProvider } from '../../providers/parties/parties';
 //pluggins
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -21,6 +22,7 @@ export class DetallePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private socialSharing:SocialSharing,
+    private fiestaP:PartiesProvider,
     private authS:AuthSProvider
   ) {
     this.fiesta = navParams.get('fiesta');
@@ -31,8 +33,16 @@ export class DetallePage {
     console.log('lat:' + this.fiesta.lat,'lng:' + this.fiesta.lng);
   }
 
+  abandonar(){
+    let uid = this.authS.user.uid;
+    let i = this.fiesta.invitados.indexOf(uid);
+    this.fiesta.invitados.splice(i, 1);
+    this.fiestaP.editFiesta(this.fiesta);
+    this.navCtrl.popToRoot();
+  }
+
   compartir(){
-    this.socialSharing.shareViaWhatsApp(this.fiesta.id);
+    this.socialSharing.shareViaWhatsApp('Has sido invitado a un evento, para aceptar la invitación introduce el siguiente codigo en Invitaciones: \n'+this.fiesta.id);
   }
 
   mostrarMapa(){

@@ -7,7 +7,8 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <button ion-button item-end *ngIf="!mia && fiesta.privada" (click)="abandonar()" clear>Dejar Evento <ion-icon name="exit"></ion-icon></button>
   <ion-item>Distancia:
     <p *ngIf="fiesta.distancia">{{fiesta.distancia}} Km</p>
     <button ion-button (click)="mostrarMapa()" item-end clear>
