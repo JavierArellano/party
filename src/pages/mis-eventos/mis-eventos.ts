@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
-import { AgregarPage, DetallePage } from '../index.paginas';
+import { AgregarPage, DetallePage, EditarPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 import { AuthSProvider } from '../../providers/auth-s/auth-s';
@@ -22,8 +22,11 @@ export class MisEventosPage {
   }
 
   detalle(fiesta:any){
-    console.log('detalle: ', fiesta);
     this.navCtrl.push(DetallePage, {'fiesta':fiesta});
+  }
+
+  editar(fiesta:any){
+    this.navCtrl.push(EditarPage, {'fiesta':fiesta});
   }
 
   borrar(fiesta:any){

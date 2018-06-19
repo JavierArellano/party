@@ -6,12 +6,6 @@ import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
 import { AuthSProvider } from '../../providers/auth-s/auth-s';
 
-/**
- * Generated class for the AgregarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -85,6 +79,7 @@ export class AgregarPage {
       if (nombre!=''){
         let lat = this.ubicacionP.coordNuevas.lat;
         let lng = this.ubicacionP.coordNuevas.lng;
+        this.ubicacionP.coordNuevas=null;
         this.moreBebida();
         this.moreComida();
         let userId = this.authS.user.uid;

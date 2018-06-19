@@ -2,12 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable, Subject } from 'rxjs/Rx';
 
-/*
-  Generated class for the PartiesProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class PartiesProvider {
   fiestas:any;
@@ -25,12 +20,15 @@ export class PartiesProvider {
     data.id = id;
     this.afDB.collection('fiestas').doc(id).set(data);
   }
+  editFiesta(fiesta:any){
+    delete fiesta.distancia;
+    this.afDB.doc(`/fiestas/${fiesta.id}`).update(fiesta);
+  }
 
   ponerId(id){
     this.afDB.doc(`/fiestas/${id}`).update({'id': id});
   }
   addfiestasObs(){
-    console.log('fiestas obs:',this.fiestas)
     this.fiestasas.next(this.fiestas);
   }
   fiestasObs(): Observable<any>{
@@ -105,19 +103,23 @@ export class PartiesProvider {
             }
           }
           let f2=[];
-          let f3=[];
           for (let i = 0; i < this.fiestas.length; i++) {
               if(this.fiestas[i].privada){
-                f3.push(i);
-                for (let inv in this.fiestas[i].invitados) {
-                    if(this.fiestas[i].invitados[inv]==uid){
-                      f2.push(i);
-                      break;
-                    }
+                if (this.fiestas[i].userId==uid) {
+                  f2.push(this.fiestas[i]);
+                }else{
+                  for (let inv in this.fiestas[i].invitados) {
+                      if(this.fiestas[i].invitados[inv]==uid ){
+                        f2.push(this.fiestas[i]);
+                        break;
+                      }
+                  }
                 }
+              }else{
+                f2.push(this.fiestas[i]);
               }
           }
-          console.log('f2:'+f2,'f3:'+f3);
+          this.fiestas = f2;
           this.addfiestasObs();
           resolve(true);
         }else{

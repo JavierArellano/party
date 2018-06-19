@@ -1,12 +1,81 @@
 <ion-header>
 
   <ion-navbar color="naranja">
-    <ion-title>editar</ion-title>
+    <ion-title>Editar {{fiesta.nombre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  	<form (ngSubmit)="add()" [formGroup]="addForm">
+  		<ion-list inset>
+        <ion-item>
+          <ion-label>Privada</ion-label>
+          <ion-toggle
+          [(ngModel)]="fiesta.privada"
+          [ngModelOptions]="{standalone: true}"
+          ></ion-toggle>
+        </ion-item>
+        <p>Nombre Evento:</p>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre" formControlName="nombre" value="{{fiesta.nombre}}"></ion-input>
+        </ion-item>
+        <p>Bebida: <button ion-button (click)="moreBebida()" clear><ion-icon name="add"></ion-icon></button> </p>
+          <ion-list>
+            <ion-item *ngFor="let beb of fiesta.bebidas; let i = index">
+              <h2>{{beb.marca}}</h2>
+              <p>{{beb.cantidad}}</p>
+              <button ion-button item-end clear (click)="borrarB(i)"><ion-icon color="danger" name="trash"></ion-icon></button>
+            </ion-item>
+          </ion-list>
+        <div formGroupName="bebidas">
+          <ion-item>
+            <ion-input type="text" placeholder="Marca" formControlName="marca"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
+          </ion-item>
+        </div>
+        <p>Comida: <button ion-button (click)="moreComida()" clear><ion-icon name="add"></ion-icon></button></p>
+          <ion-list>
+            <ion-item *ngFor="let com of fiesta.comida; let i = index">
+              <h3>{{com.plato}}</h3>
+              <p>{{com.cantidad}}</p>
+              <button ion-button item-end clear (click)="borrarC(i)"><ion-icon color="danger" name="trash"></ion-icon></button>
+            </ion-item>
+          </ion-list>
+        <div formGroupName="comidas">
+          <ion-item>
+            <ion-input type="text" placeholder="Plato" formControlName="plato"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Cantidad" formControlName="cantidad"></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <p>Fecha:</p>
+          <ion-item>
+            <ion-datetime
+              displayFormat="DDDD DD de MMMM"
+              pickerFormat="DD MMMM HH mm"
+              [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="fiesta.fecha"
+              dayNames="domingo, lunes, martes, miercoles, jueves, viernes, sabado"
+              monthNames="enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre"
+              monthShortNames="ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic"
+            ></ion-datetime>
+          </ion-item>
+        </div>
+        <p>Ubicación: </p>
+        <button ion-button (click)="abrirMapa()" clear>Modificar Ubicación</button>
 
+  		</ion-list>
+
+  		<div padding-horizontal>
+
+  			<button ion-button full type="submit">Guardar</button>
+
+  		</div>
+  	</form>
 </ion-content>
