@@ -20,13 +20,11 @@ export class AuthSProvider {
 	}
 
 	signInWithEmail(credentials) {
-		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
 			 credentials.password);
 	}
 
 	signInWithGoogle() {
-			console.log('Sign in with google');
 			return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
 	}
 
@@ -42,7 +40,6 @@ export class AuthSProvider {
 					let token = result.credential.accessToken;
 					// The signed-in user info.
 					let user = result.user;
-					console.log(token, user);
 				}).catch(function(error) {
 					// Handle Errors here.
 					alert(error.message);

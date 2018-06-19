@@ -71,7 +71,6 @@ export class EditarPage {
   add(){
     if(this.ubicacionP.coordNuevas ){
       this.fiesta.nombre = this.addForm.get('nombre').value;
-      console.log(this.fiesta.nombre);
       if (this.fiesta.nombre!=''){
         this.fiesta.lat = this.ubicacionP.coordNuevas.lat;
         this.fiesta.lng = this.ubicacionP.coordNuevas.lng;
@@ -83,7 +82,6 @@ export class EditarPage {
       }
     }
     this.fiesta.nombre = this.addForm.get('nombre').value;
-    console.log(this.fiesta.nombre);
     if (this.fiesta.nombre!=''){
       this.moreBebida();
       this.moreComida();

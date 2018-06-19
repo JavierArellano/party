@@ -39,7 +39,6 @@ export class MisEventosPage {
       if (exists){
         this.ubicacionP.mis_fiestas_posi().then( existe => {
           if (existe){
-            console.log(this.ubicacionP.posi);
           }
         });
       }
@@ -48,7 +47,6 @@ export class MisEventosPage {
     .subscribe(
         data => {
           this.fiestas=data
-          console.log('data:', data)
         });
   }
 

@@ -32,7 +32,6 @@ export class AgregarPage {
       this.ubicacionP.actual().then( exists => {
         if (exists){
           this.ub = this.ubicacionP.posi;
-          console.log(this.ub);
         }
       });
       this.addForm = fb.group({

@@ -43,7 +43,6 @@ export class HomePage {
         {
           text: 'Aceptar',
           handler: data => {
-            console.log(data.codigo);
             this.parties.obtenerUna(data.codigo).then( exist => {
               if( exist ){
                 this.f = this.parties.f;

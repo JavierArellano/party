@@ -56,7 +56,6 @@ export class PartiesProvider {
     })
   }
   aceptarInvitacion(id, lista){
-    console.log(lista);
     this.afDB.doc(`/fiestas/${id}`).update({
       'invitados':lista
     })

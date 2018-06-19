@@ -29,8 +29,6 @@ export class DetallePage {
     if(this.fiesta.userId == this.authS.user.uid){
       this.mia=true;
     }
-
-    console.log('lat:' + this.fiesta.lat,'lng:' + this.fiesta.lng);
   }
 
   abandonar(){

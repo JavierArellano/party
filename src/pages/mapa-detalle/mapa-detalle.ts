@@ -21,8 +21,6 @@ export class MapaDetallePage {
     this.fiesta = navParams.get('fiesta');
     this.milat = this.ubicacionP.posi.coords.latitude;
     this.milng = this.ubicacionP.posi.coords.longitude;
-    console.log(this.ubicacionP.posi)
-    console.log(this.milat, this.milng)
   }
 
 

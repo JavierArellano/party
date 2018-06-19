@@ -57,7 +57,6 @@ export class UbicacionProvider {
               this.posi=data;
               resolve(true);
             }else{
-              console.log('fallo soloPos posi:', this.posi);
               resolve(false);
             }
           });
@@ -72,14 +71,12 @@ export class UbicacionProvider {
     return new Promise( (resolve, reject)=>{
       this.soloPos().then( exist => {
         if(exist){
-          console.log('ubicacion.ts', this.posi)
           for (let i = 0; i < this.parties.mis_fiestas.length; i++) {
             this.parties.mis_fiestas[i].distancia = this.distancia(this.parties.mis_fiestas[i].lat,this.parties.mis_fiestas[i].lng)
           }
           this.parties.addmisfiestasObs();
           resolve(true);
         }else{
-          console.log('fallo');
           resolve(false);
         }
       })
@@ -95,7 +92,6 @@ export class UbicacionProvider {
           this.parties.addfiestasObs();
           resolve(true);
         }else{
-          console.log('fallo posi:', this.posi);
           resolve(false);
         }
       })
