@@ -32,6 +32,7 @@ import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Calendar } from '@ionic-native/calendar';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { Calendar } from '@ionic-native/calendar';
     UbicacionProvider,
     Geolocation,
     SocialSharing,
-    Calendar
+    Calendar,
+    UsuarioProvider
   ]
 })
 export class AppModule {}

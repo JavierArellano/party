@@ -40,7 +40,7 @@ export class DetallePage {
   }
 
   compartir(){
-    this.socialSharing.shareViaWhatsApp('Has sido invitado a un evento, para aceptar la invitación introduce el siguiente codigo en Invitaciones: \n'+this.fiesta.id);
+    this.socialSharing.shareViaWhatsApp("Desde la aplicación *Let's Party* has sido invitado a un evento, para aceptar la invitación introduce el siguiente codigo en Invitaciones: \n"+this.fiesta.id);
   }
 
   mostrarMapa(){
