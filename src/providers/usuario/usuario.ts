@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthSProvider } from '../auth-s/auth-s';
-import {Observable, Subject } from 'rxjs/Rx';
 
 
 @Injectable()

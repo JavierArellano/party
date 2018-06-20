@@ -33,6 +33,7 @@ import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Calendar } from '@ionic-native/calendar';
+import { Camera } from '@ionic-native/camera';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
 @NgModule({
@@ -88,7 +89,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     Geolocation,
     SocialSharing,
     Calendar,
-    UsuarioProvider
+    UsuarioProvider,
+    Camera
   ]
 })
 export class AppModule {}

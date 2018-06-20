@@ -100,4 +100,5 @@
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <plugin name="cordova-plugin-calendar" spec="^5.1.2" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-camera" spec="~4.0.3" />
 </widget>

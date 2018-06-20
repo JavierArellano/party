@@ -11,5 +11,33 @@
 
 
 <ion-content>
-
+  <ion-item *ngIf="perfil">
+    <ion-avatar>
+      <img [src]="perfil.foto">
+    </ion-avatar>
+  </ion-item>
+  <ion-item *ngIf="perfil">
+    <h3>Email</h3>
+    <p>{{perfil.email}}</p>
+  </ion-item>
+  <ion-item *ngIf="perfil">
+    <h3>Nombre</h3>
+    <p *ngIf="perfil.nombre">{{perfil.nombre}}</p>
+    <button ion-button item-end clear (click)="editarNombre()"><ion-icon color="teal" name="create"></ion-icon></button>
+  </ion-item>
+  <ion-item *ngIf="perfil">
+    <h3>Nick</h3>
+    <p *ngIf="perfil.nick">{{perfil.nick}}</p>
+    <button ion-button item-end clear (click)="editarNick()"><ion-icon color="teal" name="create"></ion-icon></button>
+  </ion-item>
+  <ion-item *ngIf="perfil">
+    <ion-label>Fecha Nacimiento</ion-label>
+    <ion-datetime
+      displayFormat="DD de MMMM de YYYY"
+      pickerFormat="DD MMMM YYYY"
+      [(ngModel)]="perfil.fecha"
+      (ionChange)="onChange()"
+      monthNames="enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre"
+    ></ion-datetime>
+  </ion-item>
 </ion-content>

@@ -23,6 +23,7 @@
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "5.2.10",
     "@ionic-native/calendar": "^4.7.0",
+    "@ionic-native/camera": "^4.7.0",
     "@ionic-native/core": "4.7.0",
     "@ionic-native/geolocation": "^4.7.0",
     "@ionic-native/social-sharing": "^4.7.0",
@@ -75,7 +76,8 @@
       "cordova-plugin-browsertab": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-calendar": {}
+      "cordova-plugin-calendar": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android"
