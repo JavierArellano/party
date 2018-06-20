@@ -9,8 +9,11 @@
 
 <ion-content>
   <button ion-button item-end *ngIf="!mia && fiesta.privada" (click)="abandonar()" clear>Dejar Evento <ion-icon name="exit"></ion-icon></button>
-  <ion-item>Distancia:
-    <p *ngIf="fiesta.distancia">{{fiesta.distancia}} Km</p>
+  <ion-item *ngIf="creadorPerfil">Evento Organizado Por:
+    <p>{{creadorPerfil.email}}</p>
+  </ion-item>
+  <ion-item *ngIf="fiesta.distancia">Distancia:
+    <p>{{fiesta.distancia}} Km</p>
     <button ion-button (click)="mostrarMapa()" item-end clear>
       <ion-icon name="map"></ion-icon>
     </button>

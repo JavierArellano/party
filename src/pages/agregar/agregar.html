@@ -26,9 +26,10 @@
         </ion-item>
         <p>Bebida: <button ion-button (click)="moreBebida()" clear><ion-icon name="add"></ion-icon></button> </p>
           <ion-list>
-            <ion-item *ngFor="let beb of bebidas">
+            <ion-item *ngFor="let beb of bebidas; let i = index">
               <h2>{{beb.marca}}</h2>
               <p>{{beb.cantidad}}</p>
+              <button ion-button item-end clear (click)="borrarB(i)"><ion-icon color="danger" name="trash"></ion-icon></button>
             </ion-item>
           </ion-list>
         <div formGroupName="bebidas">
@@ -41,9 +42,10 @@
         </div>
         <p>Comida: <button ion-button (click)="moreComida()" clear><ion-icon name="add"></ion-icon></button></p>
           <ion-list>
-            <ion-item *ngFor="let com of comidas">
+            <ion-item *ngFor="let com of comidas; let i = index">
               <h3>{{com.plato}}</h3>
               <p>{{com.cantidad}}</p>
+              <button ion-button item-end clear (click)="borrarC(i)"><ion-icon color="danger" name="trash"></ion-icon></button>
             </ion-item>
           </ion-list>
         <div formGroupName="comidas">

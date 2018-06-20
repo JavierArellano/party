@@ -16,7 +16,8 @@ import {
   TabsPage,
   MisEventosPage,
   MapaCercanasPage,
-  MapaDetallePage
+  MapaDetallePage,
+  PerfilPage
 } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -47,7 +48,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     TabsPage,
     MisEventosPage,
     MapaCercanasPage,
-    MapaDetallePage
+    MapaDetallePage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     TabsPage,
     MisEventosPage,
     MapaCercanasPage,
-    MapaDetallePage
+    MapaDetallePage,
+    PerfilPage
   ],
   providers: [
     StatusBar,

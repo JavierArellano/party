@@ -48,6 +48,14 @@ export class AgregarPage {
 
   }
 
+  borrarB(i){
+    this.bebidas.splice(i, 1);
+  }
+
+  borrarC(i){
+    this.comidas.splice(i, 1);
+  }
+
   moreBebida(){
     let marca = this.addForm.get('bebidas.marca').value;
     let cant = this.addForm.get('bebidas.cantidad').value;

@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage, LoginPage, AgregarPage, SignupPage, MisEventosPage } from '../pages/index.paginas';
+import { HomePage, LoginPage, AgregarPage, SignupPage, MisEventosPage, PerfilPage } from '../pages/index.paginas';
 import { AuthSProvider } from '../providers/auth-s/auth-s';
 import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 
@@ -16,6 +16,7 @@ export class MyApp {
   meter = AgregarPage;
   regis = SignupPage;
   mias = MisEventosPage;
+  perfil = PerfilPage;
   isLogged:boolean;
 
   rootPage:any = LoginPage;
@@ -43,6 +44,10 @@ export class MyApp {
 
   closeMenu(){
     this.menuCtrl.toggle();
+  }
+  miPerfil(){
+    this.menuCtrl.toggle();
+    this.rootPage = this.perfil;
   }
 
   misEventos(){

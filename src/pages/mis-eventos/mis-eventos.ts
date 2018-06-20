@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 
 import { AgregarPage, DetallePage, EditarPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
@@ -14,7 +14,12 @@ import { AuthSProvider } from '../../providers/auth-s/auth-s';
 export class MisEventosPage {
   fiestas:any;
 
-  constructor(public navCtrl: NavController, private parties:PartiesProvider, private ubicacionP:UbicacionProvider, private auth: AuthSProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public alertCtrl:AlertController,
+    private parties:PartiesProvider,
+    private ubicacionP:UbicacionProvider,
+    private auth: AuthSProvider) {
   }
 
   nuevoEvento(){
@@ -30,7 +35,29 @@ export class MisEventosPage {
   }
 
   borrar(fiesta:any){
-    this.parties.borrarEvento(fiesta.id);
+    this.showPrompt(fiesta.id);
+  }
+
+  showPrompt(id){
+    const prompt = this.alertCtrl.create({
+      title: 'Borrar',
+      message: "Estás seguro de que quieres borrar el evento?",
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: data => {
+              this.parties.borrarEvento(id);
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
   ionViewDidLoad() {
