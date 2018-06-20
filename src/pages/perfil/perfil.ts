@@ -36,7 +36,7 @@ export class PerfilPage {
     })
   }
 
-  takeSelfie(): void {
+  foto(): void {
     this.cameraPlugin.getPicture({
       quality : 95,
       destinationType : this.cameraPlugin.DestinationType.DATA_URL,

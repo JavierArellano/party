@@ -15,6 +15,7 @@
     <ion-avatar>
       <img [src]="perfil.foto">
     </ion-avatar>
+    <button ion-button item-end clear (click)="foto()"><ion-icon color="teal" name="create"></ion-icon></button>
   </ion-item>
   <ion-item *ngIf="perfil">
     <h3>Email</h3>
