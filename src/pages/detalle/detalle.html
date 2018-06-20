@@ -19,7 +19,7 @@
     </button>
   </ion-item>
   <ion-item *ngIf="fiesta.fecha">Fecha:
-    <p>{{inv.fecha | Date: 'dd/MM/yyyy H:mm'}}</p>
+    <p>{{fiesta.fecha | date: 'dd/MM/yyyy H:mm'}}</p>
   </ion-item>
   <ion-item>Bebida:  <button ion-button (click)="mostrarB()" clear><ion-icon name="arrow-down"></ion-icon></button>
     <ion-list *ngIf="mostrarBeb">
@@ -42,7 +42,7 @@
       <ion-item *ngFor="let inv of fiesta.invitados">
         <h3 *ngIf="inv.nick">{{inv.nick}}</h3>
         <p *ngIf="inv.email">{{inv.email}}</p>
-        <p *ngIf="inv.fecha">{{inv.fecha | Date: 'dd/MM/yyyy'}}</p>
+        <p *ngIf="inv.fecha">{{inv.fecha | date: 'dd/MM/yyyy'}}</p>
       </ion-item>
     </ion-list>
   </ion-item>
