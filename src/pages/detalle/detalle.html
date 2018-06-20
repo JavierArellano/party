@@ -10,6 +10,7 @@
 <ion-content>
   <button ion-button item-end *ngIf="!mia && fiesta.privada" (click)="abandonar()" clear>Dejar Evento <ion-icon name="exit"></ion-icon></button>
   <ion-item *ngIf="creadorPerfil">Evento Organizado Por:
+    <h3 *ngIf="creadorPerfil.nick">{{creadorPerfil.nick}}</h3>
     <p>{{creadorPerfil.email}}</p>
   </ion-item>
   <ion-item *ngIf="fiesta.distancia">Distancia:
