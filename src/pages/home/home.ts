@@ -4,6 +4,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AgregarPage, DetallePage, MapaCercanasPage } from '../index.paginas';
 import { PartiesProvider } from '../../providers/parties/parties';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthSProvider } from '../../providers/auth-s/auth-s';
 import { Calendar } from '@ionic-native/calendar';
 
@@ -15,12 +16,14 @@ export class HomePage {
   fiestas:any;
   f:any;
   lista:any[];
+  perfil:any;
   constructor(
     public navCtrl: NavController,
     public alertCtrl:AlertController,
     private parties:PartiesProvider,
     private ubicacionP:UbicacionProvider,
     private calendario:Calendar,
+    private usuarioP:UsuarioProvider,
     private authS:AuthSProvider) {
 
   }
@@ -50,10 +53,10 @@ export class HomePage {
                 this.f = this.parties.f;
                 if(this.f.invitados){
                   this.lista = this.f.invitados;
-                  this.lista.push(this.authS.user.uid);
+                  this.lista.push(this.perfil);
                   this.parties.aceptarInvitacion(data.codigo, this.lista);
                 }else{
-                  this.lista = [this.authS.user.uid];
+                  this.lista = [this.perfil];
                   this.parties.aceptarInvitacion(data.codigo, this.lista);
                 }
               }
@@ -128,5 +131,11 @@ export class HomePage {
       .subscribe(
         data => {this.fiestas=data}
       );
+    this.usuarioP.getMiPerfil( this.authS.user.uid )
+      .then( exist => {
+        if (exist){
+          this.perfil = this.usuarioP.perfil;
+        }
+      });
   }
 }
