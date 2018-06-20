@@ -108,7 +108,7 @@ export class PartiesProvider {
                   f2.push(this.fiestas[i]);
                 }else{
                   for (let inv in this.fiestas[i].invitados) {
-                      if(this.fiestas[i].invitados[inv]==uid ){
+                      if(this.fiestas[i].invitados[inv].uid==uid ){
                         f2.push(this.fiestas[i]);
                         break;
                       }

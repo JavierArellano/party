@@ -20,6 +20,7 @@ export class DetallePage {
   mia:boolean=false;
   mostrarCom:boolean=false;
   mostrarBeb:boolean=false;
+  mostrarInv:boolean=false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -37,7 +38,7 @@ export class DetallePage {
     .then( exist => {
       if (exist){
         this.creadorPerfil = this.usuarioP.creadorPerfil;
-        console.log('creador perfil', this.creadorPerfil);
+        console.log('creador perfil', this.fiesta);
       }
     })
   }
@@ -79,6 +80,14 @@ export class DetallePage {
       this.navCtrl.push( MapaDetallePage, { 'fiesta':this.fiesta, 'lat': this.fiesta.lat, 'lng':this.fiesta.lng } );
   }
 
+  mostrarI(){
+    if(this.mostrarInv){
+      this.mostrarInv=false;
+    }else{
+      this.mostrarInv=true;
+    }
+  }
+
   mostrarB(){
     if(this.mostrarBeb){
       this.mostrarBeb=false;
@@ -86,6 +95,7 @@ export class DetallePage {
       this.mostrarBeb=true;
     }
   }
+
   mostrarC(){
     if(this.mostrarCom){
       this.mostrarCom=false;
