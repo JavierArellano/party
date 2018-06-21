@@ -44,9 +44,6 @@ export class DetallePage {
   }
 
   abandonar(){
-    this.showPrompt();
-  }
-  showPrompt(){
     const prompt = this.alertCtrl.create({
       title: 'Abandonar',
       message: "Estás seguro de que quieres salir?",
