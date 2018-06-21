@@ -74,6 +74,7 @@ export class MyApp {
   }
 
   initializeApp() {
+    //inicializar la app y login automatico.
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

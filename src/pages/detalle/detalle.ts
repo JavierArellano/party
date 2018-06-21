@@ -44,6 +44,7 @@ export class DetallePage {
   }
 
   abandonar(){
+    //genera el alert que pide la confirmacion para abandonar un evento
     const prompt = this.alertCtrl.create({
       title: 'Abandonar',
       message: "Estás seguro de que quieres salir?",
@@ -57,6 +58,7 @@ export class DetallePage {
         {
           text: 'Aceptar',
           handler: data => {
+            // si acepta, elimino el perfil del usuario de la lista de invitados y guardo el evento.
             let uid = this.authS.user.uid;
             let i = this.fiesta.invitados.indexOf(uid);
             this.fiesta.invitados.splice(i, 1);
@@ -70,13 +72,15 @@ export class DetallePage {
   }
 
   compartir(){
+    //abre whatsapp para enviar el mensaje al contacto seleccionado.
     this.socialSharing.shareViaWhatsApp("Desde la aplicación *Let's Party* has sido invitado a un evento, para aceptar la invitación introduce el siguiente codigo en Invitaciones: \n"+this.fiesta.id);
   }
 
   mostrarMapa(){
+    //te redirige a la pagina del mapa pasando por parametros el evento y sus coordenadas.
       this.navCtrl.push( MapaDetallePage, { 'fiesta':this.fiesta, 'lat': this.fiesta.lat, 'lng':this.fiesta.lng } );
   }
-
+  //desplegan los listados.
   mostrarI(){
     if(this.mostrarInv){
       this.mostrarInv=false;

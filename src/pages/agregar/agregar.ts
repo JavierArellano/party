@@ -81,6 +81,7 @@ export class AgregarPage {
   }
 
   add(){
+    //Envia los datos del formulario al proveedor de los eventos para guardarlo.
     if(this.ubicacionP.coordNuevas ){
       let nombre = this.addForm.get('nombre').value;
       if (nombre!=''){
